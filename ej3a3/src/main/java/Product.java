@@ -146,47 +146,56 @@ public class Product {
     private double price;
 
     public Product(int id, String name, double price) {
-        // TODO: initialize attributes using setters
+        setId(id);
+        setName(name);
+        setPrice(price);
     }
 
     public void setId(int id) {
-        // TODO: assign id
+        this.id = id;
     }
 
     public void setName(String name) {
-        // TODO: print "Product name cannot be empty." if name is null or empty
-        // otherwise assign the value
+        if(name == null || name.isEmpty()) {
+            System.out.println("Product name cannot be empty.");
+        } else {
+            this.name = name;
+        }
     }
 
     public void setPrice(double price) {
-        // TODO: print "Price cannot be negative." if price < 0
-        // otherwise assign the value
+        if(price < 0) {
+            System.out.println("Price cannot be negative.");
+        } else {
+            this.price = price;
+        }
     }
 
     public int getId() {
-        // TODO: return id
-      
+        return id;      
     }
 
     public String getName() {
-        // TODO: return name
-     
+        return name;
     }
 
     public double getPrice() {
-        // TODO: return price
-     
+        return price;
     }
 
     public double calculateDiscount(double percent) {
-        // TODO: if percent is invalid, print "Invalid discount percentage." and return 0
-        // else return the discount amount
-      
+        double discount = 0.0;
+        if(percent < 0 || percent > 100) {
+            System.out.println("Invalid discount percentage.");
+        } else {
+            discount = percent * price / 100;
+        }  
+
+        return discount;    
     }
 
     public double calculateDiscount() {
-        // TODO: call calculateDiscount with 10% as default
-     
+        return calculateDiscount(10.0);
     }
 
     // -------------------------------------------------------------
@@ -251,4 +260,4 @@ public class Product {
     // Vuelve a comentar este main cuando quieras ejecutar los tests con:
     // mvn test
 	// -------------------------------------------------------------
-}
+
