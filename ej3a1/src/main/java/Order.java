@@ -61,64 +61,69 @@ public class Order {
     // Constructor to initialize attributes
     // Use 'this' for id and setters for customer and amount
     public Order(int id, String customer, double amount) {
-        // TODO: assign id
-        // TODO: call setCustomer(customer)
-        // TODO: call setAmount(amount)
+        this.id = id;
+        setCustomer(customer);
+        setAmount(amount);
     }
 
     // Getter for id
     public int getId() {
-        // TODO: return id
+        return id;
        
     }
 
     // Setter for id
     public void setId(int id) {
-        // TODO: assign this.id
+        this.id = id;
     }
 
     // Getter for customer
     public String getCustomer() {
-        // TODO: return customer
-       
+        return customer;
     }
 
     // Setter for customer
     // If customer is null or empty, print "Customer name cannot be empty."
     public void setCustomer(String customer) {
-        // TODO: validate and assign customer
+        if(customer == null || customer.isEmpty()) {
+            System.out.println("Customer name cannot be empty.");
+        } else {
+            this.customer = customer;
+        }
     }
 
     // Getter for amount
     public double getAmount() {
-        // TODO: return amount
-       
+        return amount;
     }
 
     // Setter for amount
     // If amount is negative, print "Amount cannot be negative."
     public void setAmount(double amount) {
-        // TODO: validate and assign amount
+        if(amount < 0) {
+            System.out.println("Amount cannot be negative.");
+        } else {
+            this.amount = amount;
+        }
     }
 
     // toString method to return the order details as specified
     @Override
     public String toString() {
-        // TODO: return "Order: " + id + ", Customer: " + customer + ", Amount: " + amount + "€"
-        
+        return "Order: " + id + ", Customer: " + customer + ", Amount: " + amount + "€"; 
     }
 	 // -------------------------------------------------------------
     // Test manual per a probar amb l'IDE
 	// Test manual para probar con el IDE
     // -------------------------------------------------------------
-    /*
-    public static void main(String[] args) {
+    
+/*  public static void main(String[] args) {
         Order o = new Order(1, "Laura", 120.0);
         System.out.println(o);
         o.setCustomer("");
         o.setAmount(-50);
     }
-    */
+*/    
 	// Torna a comentar aquest main quan vulguis executar els tests amb maven test
     // Vuelve a comentar este main cuando quieras ejecutar los tests con:
     // mvn test
