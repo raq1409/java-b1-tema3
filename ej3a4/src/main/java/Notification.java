@@ -73,11 +73,11 @@ public class Notification {
     protected String recipient;
 
     public Notification(String recipient) {
-        // TODO: assign recipient
+        this.recipient = recipient;
     }
 
     public void send() {
-        // TODO: implement base send method or leave for override
+        System.out.println("Sending Notification to " + recipient);
     }
 
 	// -------------------------------------------------------------
